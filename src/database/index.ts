@@ -4,8 +4,16 @@ const DEFAULT_CONFIG = {
   host: 'localhost',
   user: 'root',
   port: 3306,
-  password: '',
-  database: 'moviesdb'
+  password: 'root',
+  database: 'dely_app'
 }
 
-export const connection = await createConnection(DEFAULT_CONFIG);
+export const connection = async () => {
+  try {
+    const connection = await createConnection(DEFAULT_CONFIG);
+    return connection;
+  } catch (error) {
+    console.error('Error connecting to the database:', error);
+    process.exit(1);
+  }
+}
