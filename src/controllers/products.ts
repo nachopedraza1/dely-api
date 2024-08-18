@@ -14,6 +14,7 @@ class ProductsController {
 
     public async addProduct(req: Request, res: Response) {
         const { name, price } = req.body;
+        
         return res.status(200).json({
             name,
             price
