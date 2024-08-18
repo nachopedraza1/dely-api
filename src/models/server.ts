@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import cors from 'cors';
 
-import ordersRoutes from '../routes/orders'
+import ProductsRoutes from '../routes/products'
 
 class Server {
 
@@ -9,7 +9,7 @@ class Server {
     private port: string;
 
     private apiPaths = {
-        order: '/api/order',
+        products: '/api/products',
     }
 
     constructor() {
@@ -33,7 +33,7 @@ class Server {
     }
 
     routes() {
-        this.app.use(this.apiPaths.order, ordersRoutes);
+        this.app.use(this.apiPaths.products, ProductsRoutes);
     }
 
 }
